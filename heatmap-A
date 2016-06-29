@@ -4,28 +4,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-    <title>热力图</title>
+    <title>凤凰金服用户分布图</title>
     <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
-    <script src="http://webapi.amap.com/maps?v=1.3&key=您申请的key值"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=65bd7df6ea6083f105fdc9f04185ba57"></script>
     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
     <script type="text/javascript" src="http://cache.amap.com/lbs/static/heatmapData.js"></script>
 </head>
 <body>
 <div id="container"></div>
-<div class="button-group">
-    <input type="button" class="button" value="显示热力图" onclick="heatmap.show()"/>
-    <input type="button" class="button" value="关闭热力图" onclick="heatmap.hide()"/>
-    <input type="button" class="button" value="全部用户定位" onclick="heatmap.setDataSet({data:points,max:100});" />
-	<input type="button" class="button" onclick="heatmap.setDataSet({data:points,max: 100});    });" value="投资额：0"/>
+<div class="button-group">   
+  <input type="button" class="button" value="全部用户定位" onclick="heatmap.setDataSet({data:pointsall,max:100});" />
+	<input type="button" class="button" onclick="heatmap.setDataSet({data:points,max: 100}); " value="投资额：0"/>
 	<input type="button" class="button" onclick="heatmap.setDataSet({data:points01,max:100});" value="投资额：0-10000"/>
 	<input type="button" class="button" onclick="heatmap.setDataSet({data:points15,max:100});" value="投资额：10000-50000"/>
 	<input type="button" class="button" onclick="heatmap.setDataSet({data:points5,max:100});" value="投资额：50000以上"/>
+	<p1><br/>数据时间 6月20日到6月28日 共2314条有效数据<br/>单位：人次<p1/>
 </div>
 <script>
     var map = new AMap.Map("container", {
         resizeEnable: true,
-        center: [116.418261, 39.921984],
-        zoom: 3
+        center: [113.418261, 30.921984],
+        zoom: 5
     });
     if (!isSupportCanvas()) {
         alert('热力图仅对支持canvas的浏览器适用,您所使用的浏览器不能使用热力图功能,请换个浏览器试试~')
@@ -58,6 +57,20 @@
              1.0: 'red'
              }*/
         });
+        //设置数据集：该数据为北京部分“公园”数据
+        heatmap.setDataSet({
+            data: pointsall,
+            max: 100
+        });
+         heatmap.show();
+    });
+     
+    //判断浏览区是否支持canvas
+    function isSupportCanvas() {
+        var elem = document.createElement('canvas');
+        return !!(elem.getContext && elem.getContext('2d'));
+    }
+    
         
   var youtouzi = [
     {"lng":113.039683 ,"lat":28.239068,"count":5},
@@ -5985,26 +5998,9 @@
   {"lng":113.198624 ,"lat":22.927109,"count":5},
   {"lng":113.198624 ,"lat":22.927109,"count":5},
   {"lng":113.287109 ,"lat":22.956914,"count":5}
-    
-    ]; 
+        ]; 
  
-  
-        
-        //设置数据集：该数据为北京部分“公园”数据
-        heatmap.setDataSet({
-            data: pointsall,
-         max: 100
-       });
-    });
     
-    
-    
-    //判断浏览区是否支持canvas
-    function isSupportCanvas() {
-        var elem = document.createElement('canvas');
-        return !!(elem.getContext && elem.getContext('2d'));
-    }
 </script>
-
 </body>
 </html>
