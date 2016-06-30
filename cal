@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<style type="text/css">
+
+
+	</style>
+<script>
+function count()
+{
+	var r1 = document.getElementById("shuru1").value
+	var r2=document.getElementById("shuru2").value
+	var r3=document.getElementById("shuru3").value/100
+	var r4=document.getElementById("shuru4").value/100
+
+  var c1=r1*r2*r3
+
+  var c2=r1*r2-c1
+  
+  var c3=  (c2*r4*5 + c2)/60
+    c1=c1.toFixed(0)
+  c2= c2.toFixed(0)
+	 c3= c3.toFixed(2)
+document.getElementById("shuchu1").innerHTML= c1 ;
+document.getElementById("shuchu2").innerHTML= c2 ;
+document.getElementById("shuchu3").innerHTML= c3 ;
+
+
+}
+</script>
+</head>
+
+<body >
+
+<table border= "1"cellpadding="0">
+<tr>
+<td ><b>房价：</b></td>
+<td >
+	<input autofocus="autofocus" style="width:100%;font-size:100%;height:25px;text-align: center" calss="shuru" type="text" id="shuru1">
+</td>
+</tr>
+
+<tr >
+<td style="width:50%" ><b>马币兑人民币汇率:</b></td>
+<td >	<input style="width:100%;font-size:100%;height:25px;text-align: center "calss="shuru" type="text" id="shuru2"></td>
+</tr>
+
+<tr><td ><b>贷款比例（%）：</b></td>
+<td >	<input style="width:100%;font-size:100%;height:25px;text-align: center " calss="shuru" type="text" id="shuru3"></td>
+</tr>
+
+<tr><td ><b>借款利率（%）：</b></td>
+<td >	<input style="width:100%;font-size:100%;height:25px;text-align: center" calss="shuru" type="text" id="shuru4" value="3.48"  ></td>
+</tr>
+
+<tr>
+<td ><b>贷款期限：</b></td>
+<td >	<div style="height:25px;text-align:center"><b> 60个月</b></div>         </td>
+</tr>
+
+<tr>
+<td colspan="2" >	<button style="font-size:100%;width:100%;height:35px" type="button" onclick="count()">计算</button>
+</td>
+</tr>
+
+<tr>
+<td style="height:25px" ><b>首付额（元）：</b></td>
+<td >	<h2 style="text-align: center" calss="shuchu"  id="shuchu1"></td>
+</tr>
+
+<tr>
+<td style="height:25px" ><b>贷款额（元）：</b></td>
+<td >	<h2 style="text-align: center" calss="shuchu"  id="shuchu2"></td>
+</tr>
+
+<tr>
+<td style="height:25px" ><b>月供额（元）：</b></td>
+<td >	<h2 style="text-align: center"  calss="shuchu"  id="shuchu3"></td>
+</tr>
+</table>
+
+</body>
+</html>
